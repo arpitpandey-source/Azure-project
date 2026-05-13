@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Azure Sentiment Analysis | {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Azure AI Sentiment Analysis</h1>
+            <p><strong>Developer:</strong> {{ name }}</p>
+            <p><strong>ID:</strong> {{ user_id }}</p>
+        </header>
+
+        <form method="POST">
+            <textarea name="text_input" placeholder="Enter text to analyze sentiment..." required>{{ input_text }}</textarea>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <h3>Result: <span class="sentiment-{{ result }}">{{ result|capitalize }}</span></h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
